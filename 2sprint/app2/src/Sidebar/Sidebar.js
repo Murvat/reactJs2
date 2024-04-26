@@ -6,7 +6,7 @@ function Sidebar() {
         <div className="Sidebar">
             <nav>
                 <ul>
-                    {articles.map(item => <li>
+                    {articles.map(item => <li key={item.title}>
                         <a href={item.url}>{item.title}</a>
                     </li>)}
                 </ul>
