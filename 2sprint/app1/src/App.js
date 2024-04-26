@@ -11,6 +11,8 @@ const headerData = {
     { "link": "nav3", "text": "my link 3" },
   ]
 }
+
+
 const goods = [
   { "title": "apple", "cost": 330, "image": "https://cdn3.iconfinder.com/data/icons/fruits-52/150/icon_fruit_maca-512.png" },
   { "title": "pear", "cost": 530, "image": "https://cdn3.iconfinder.com/data/icons/fruits-52/150/icon_fruit_pera-512.png" },
