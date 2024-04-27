@@ -1,11 +1,14 @@
+import { Link, useLocation } from "react-router-dom";
+
 function Users() {
+    let url = useLocation()
     return (
         <>
             <h1>Users</h1>
             <ul>
-                <li><a href="/users/ivanov"></a>
+                <li><Link to={`${url.pathname}/ivanov`}>Ivanov</Link>
                 </li>
-                <li><a href="/users/petrov"></a>
+                <li><Link to={`${url.pathname}/petrov`}>Petrov</Link>
                 </li></ul >
         </>);
 }

@@ -1,10 +1,10 @@
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 
 function UserId() {
-    let userName = useParams();
+    let { userName } = useParams();
     return (
         <>
-            <a href="/users">Back</a>
+            <Link to="/users">Back</Link>
             <h1>User:{userName}</h1>
         </>
     )

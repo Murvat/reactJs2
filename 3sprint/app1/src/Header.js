@@ -1,12 +1,16 @@
+import { Link } from "react-router-dom";
 
 function Header() {
     return (
         <>
             <nav>
-                <li><a href="/">Main</a></li>
-                <li><a href="/about">About</a></li>
-                <li><a href="/users">Users</a></li>
+                <ul>
+                    <li><Link to="/">Main</Link></li>
+                    <li><Link to="/about">About</Link></li>
+                    <li><Link to="/users">Users</Link></li>
 
+
+                </ul>
             </nav>
         </>);
 }
