@@ -1,7 +1,11 @@
+import { useParams, NavLink } from "react-router-dom"
 function CategoryDesription() {
+    let { categoryName } = useParams();
+
     return (
         <>
-            <h1>Category Name</h1>
+            <NavLink to="/cat">Назад</NavLink>
+            <h1>Category:{categoryName}</h1>
         </>
     )
 }

@@ -1,15 +1,15 @@
-import CategoryDesription from "./CategoryDesription"
+import { NavLink, useLocation } from "react-router-dom"
 function Category() {
+    let url = useLocation();
     return (
         <>
-            <h1>Category:</h1>
-            <CategoryDesription />
             <a href="/cat">Назад</a>
             <ul>
-                <li><a href="/cat/notebook">Ноутбуки</a></li>
-                <li><a href="/cat/monitor">Мониторы</a></li>
-                <li><a href="/cat/cellphone">Мобильные телефоны</a></li>
+                <li><NavLink to={`${url.pathname}/notebook`}>Ноутбуки</NavLink></li>
+                <li><NavLink to={`${url.pathname}/monitor`}>Мониторы</NavLink></li>
+                <li><NavLink to={`${url.pathname}/cellphone`}>Мобильные телефоны</NavLink></li>
             </ul>
+
         </>
     )
 }
