@@ -1,5 +1,5 @@
 import './App.css';
-import React from 'react';
+import React, { useState } from 'react';
 
 function App() {
   const h1 = React.createElement('h1', {}, 'unit_08')
@@ -31,21 +31,19 @@ function App() {
     }, p1, p2);
 
 
-  const valueItem = React.createRef();
+  const [inputText, setInputText] = useState('');
+  const [listItems, setListItems] = useState([]);
 
-
-  function handler() {
-    let out = valueItem.current.value;
-    console.log(out)
-
-    if (out !== '') {
-      console.log('work')
-
-      let li = React.createElement('li', {}, out);
-      let listItem = document.querySelector('.list');
-      listItem.append(li.props.children)
+  const handleAddItem = () => {
+    if (inputText.trim() !== '') {
+      // Создаем новый элемент li и добавляем его к текущему списку элементов
+      setListItems(prevListItems => [...prevListItems, inputText]);
+      // Очищаем значение инпута
+      setInputText('');
     }
-  }
+  };
+
+
   return (
     <>
       {h1}
@@ -53,13 +51,21 @@ function App() {
       {p}
       {input}
       {div}
-      <input type="text" className='i-7' ref={valueItem} />
-      <button onClick={handler}></button>
-      <ul className='list'>
-
+      <input
+        type="text"
+        value={inputText}
+        onChange={(e) => setInputText(e.target.value)}
+      />
+      <button onClick={handleAddItem}>Добавить</button>
+      <ul>
+        {/* При каждом обновлении списка элементов создаем новый элемент li */}
+        {listItems.map((item, index) => (
+          <li key={index}>{item}</li>
+        ))}
       </ul>
     </>);
 
 }
 
 export default App;
+
