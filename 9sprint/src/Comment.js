@@ -6,9 +6,9 @@ class Comment extends Component {
         this.state = { data: [] };
     }
 
-    selectHandler = (event) =>{
+    selectHandler = (event) => {
         console.log(event.target.value);
-        fetch("https://jsonplaceholder.typicode.com/posts/"+ event.target.value +"/comments")
+        fetch("https://jsonplaceholder.typicode.com/posts/" + event.target.value + "/comments")
             .then(response => response.json())
             .then(data => {
                 console.log(data);

@@ -1,39 +1,38 @@
-import React, { Component } from "react";
-// import CommentsList from './CommentsList';
-import CommentsListHook from './CommentsListHook';
+import React, { useState } from "react"
+import Comments2ListHook from './Comments2ListHook'
 
-class Comment2 extends Component {
-    constructor() {
-        super();
-        this.state = { data: [] };
-    }
+function CommentHook() {
 
-    selectHandler = (event) => {
+    const [data, setData] = useState([]);
+
+
+
+    function selectHandler(event) {
         console.log(event.target.value);
         fetch("https://jsonplaceholder.typicode.com/posts/" + event.target.value + "/comments")
             .then(response => response.json())
             .then(data => {
-                this.setState({ data });
+                console.log(data);
+                setData(data);
             });
     }
-
-
-    render() {
-        return (
+    return (
+        <>
             <div>
                 <p>Choose post ID:</p>
-                <select onChange={this.selectHandler}>
+                <select onChange={selectHandler}>
                     <option value="1">1</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
                     <option value="4">4</option>
                 </select>
                 <div>
-                    <CommentsListHook data={this.state.data} />
+                    <Comments2ListHook comments={data} />
                 </div>
             </div>
-        );
-    }
+        </>
+
+    )
 }
 
-export default Comment2;
+export default CommentHook
