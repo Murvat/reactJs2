@@ -2,7 +2,9 @@ import React from 'react';
 import { useDispatch } from 'react-redux';
 import {
     add,
+    division,
     minus,
+    multi,
 } from './app/taskReducerSlice';
 
 export default function In() {
@@ -15,6 +17,12 @@ export default function In() {
     const minusHandler = () => {
         dispatch(minus(task1Input.current.value));
     }
+    const multiHandler = () => {
+        dispatch(multi(task1Input.current.value));
+    }
+    const divHandler = () => {
+        dispatch(division(task1Input.current.value))
+    }
 
     return (
         <div>
@@ -22,6 +30,8 @@ export default function In() {
             <h2>Task 1</h2>
             <button onClick={addHandler}>+</button>
             <button onClick={minusHandler}>-</button>
+            <button onClick={multiHandler}>*</button>
+            <button onClick={divHandler}>/</button>
         </div>
     );
 }
