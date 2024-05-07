@@ -7,11 +7,9 @@ const AddUser = () => {
 
     const formHandler = (event) => {
         event.preventDefault();
-
-        const formData = new FormData(event.target);
-        const name = formData.get("name");
-        const passport = formData.get("passport");
-        const age = formData.get("age");
+        const name = event.target.elements.name.value
+        const passport = event.target.elements.passport.value
+        const age = event.target.elements.age.value
 
         dispatch(addNewUsers(passport, name, age));
     };

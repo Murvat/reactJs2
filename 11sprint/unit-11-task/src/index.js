@@ -4,12 +4,12 @@ import './index.css';
 import App from './components/App';
 
 
-import { legacy_createStore } from 'redux';
+import { createStore } from 'redux';
 import { Provider } from 'react-redux';
-import initialState from './store/initialState';
 import rootReducer from './reducers'
+import initialState from './store/initialState';
 
-const store = legacy_createStore(rootReducer, initialState);
+const store = createStore(rootReducer, initialState);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
