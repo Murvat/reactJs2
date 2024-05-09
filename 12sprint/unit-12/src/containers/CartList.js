@@ -27,7 +27,17 @@ const CartList = () => {
         else if (t.classList.contains('zero')) { dispatch(zero(t.getAttribute('data-key'))) };
 
     };
-
+    console.log(cart)
+    const getTotalPrice = () => {
+        let totalPrice = 0;
+        Object.keys(cart).forEach(item => {
+            const product = goodsObj[item];
+            if (product) {
+                totalPrice += product.cost * cart[item];
+            }
+        });
+        return totalPrice;
+    };
     return (
         <div>
             <table>
@@ -39,8 +49,10 @@ const CartList = () => {
                             cost={goodsObj[item].cost}
                             count={cart[item]}
                             articul={goodsObj[item].articul}
+                            image={goodsObj[item].image}
                         />
                     ))}
+                    <td>SUM:{getTotalPrice()}</td>
                 </tbody>
             </table>
         </div>);
