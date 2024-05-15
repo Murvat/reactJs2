@@ -3,8 +3,12 @@ import env from "../env.json";
 
 function Create() {
     const [url, setUrl] = useState('');
+    const [lineClass, setlineClass] = useState('hide');
+    const [formClass, setFormClass] = useState('');
 
     let sendData = (obj) => {
+        setFormClass('hide');
+        setlineClass('');
         fetch(env.urlBackend, {
             method: 'POST',
             headers: {
@@ -36,12 +40,23 @@ function Create() {
     return (
         <>
             <div >
-                <form onSubmit={loadDataFromFrom}>
+
+                <form onSubmit={loadDataFromFrom} className={formClass}>
                     <label htmlFor="">Add note</label>
                     <textarea name="note" id="note" defaultValue='Test'></textarea>
                     <button type='submit'>Create</button>
                 </form>
+                <div className={lineClass}>
+                    <div  >
+                        {url}
+                    </div>
+                    <div>
+                        <button onClick={() => window.location.reload()}>
+                            Create  a new note
+                        </button>
+                    </div>
 
+                </div>
             </div>
         </>
     );
