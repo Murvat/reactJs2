@@ -14,7 +14,7 @@ http.createServer((req, res) => {
     if (req.method == 'GET') {
         const parsed = req.url.split('/');
         if (parsed.includes('files')) {
-            fs.readFile('./files/'+parsed[parsed.length-1], function(error, content) {
+            fs.readFile('./files/' + parsed[parsed.length - 1], function (error, content) {
                 if (error) {
                     res.end('false');
                 }
