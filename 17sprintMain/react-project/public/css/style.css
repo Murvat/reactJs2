@@ -29,6 +29,7 @@ footer {
 
 .text {
     padding: 20px;
+    padding-top: 60px;
 }
 
 
@@ -42,4 +43,8 @@ footer {
 
 .form-group {
     margin-bottom: 1rem;
+}
+
+.active {
+    color: red;
 }

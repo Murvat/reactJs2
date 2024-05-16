@@ -23,7 +23,7 @@ function Create() {
                 console.log(response);
                 // setText(response);
                 if (response.result) {
-                    setUrl(env.url + '/' + response.url);
+                    setUrl(env.url + response.url);
                 }
             });
     }
@@ -52,11 +52,11 @@ function Create() {
                         <div className="form-group text-right">
                             <button type="submit" className="btn btn-primary">Создать</button>
                         </div>
-
+                        
                     </form>
                     <div className={lineClass}>
                         <div className="alert alert-primary" role="alert">{url}</div>
-                        <p>Скопируйте URL и передайте адресату. Внимание! Посмотреть заметку можно один раз!</p>
+                         <p>Скопируйте URL и передайте адресату. Внимание! Посмотреть заметку можно один раз!</p>
                         <div className="text-right"><button onClick={function () { window.location.reload() }} className="btn btn-primary">Создать еще один note</button></div>
                     </div>
                 </div>

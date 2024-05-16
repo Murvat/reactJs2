@@ -50,7 +50,7 @@ function Note() {
             return false;
         }
         noteURL = url;
-        window.location.href = env.url + '/' + url;
+        window.location.href = env.url + url;
     }
 
     function searchNote() {
